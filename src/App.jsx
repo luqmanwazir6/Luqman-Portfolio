@@ -45,7 +45,6 @@ function GithubIcon({ size = 20, className = '' }) {
   )
 }
 
-
 function LinkedinIcon({ size = 20, className = '' }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -87,6 +86,106 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ]
 
+// 12 Curated Professional Color Palettes (Default is Sage & Gold requested by user)
+const PALETTES = [
+  {
+    id: 'sage-gold',
+    name: 'Sage & Gold (Default)',
+    primary: '#8FA28A',
+    secondary: '#C7D3C0',
+    baseLight: '#F7F4ED',
+    gold: '#C8A96B',
+  },
+  {
+    id: 'emerald-mint',
+    name: 'Emerald & Mint',
+    primary: '#059669',
+    secondary: '#6EE7B7',
+    baseLight: '#F0FDF4',
+    gold: '#F59E0B',
+  },
+  {
+    id: 'ocean-blue',
+    name: 'Ocean & Sky',
+    primary: '#2563EB',
+    secondary: '#93C5FD',
+    baseLight: '#F0F9FF',
+    gold: '#D97706',
+  },
+  {
+    id: 'indigo-electric',
+    name: 'Indigo & Electric',
+    primary: '#6366F1',
+    secondary: '#A5B4FC',
+    baseLight: '#EEF2FF',
+    gold: '#F59E0B',
+  },
+  {
+    id: 'royal-purple',
+    name: 'Royal Purple',
+    primary: '#7C3AED',
+    secondary: '#C4B5FD',
+    baseLight: '#FAF5FF',
+    gold: '#F59E0B',
+  },
+  {
+    id: 'teal-cyan',
+    name: 'Teal & Cyan',
+    primary: '#0D9488',
+    secondary: '#5EEAD4',
+    baseLight: '#F0FDFA',
+    gold: '#EA580C',
+  },
+  {
+    id: 'rose-blush',
+    name: 'Rose & Champagne',
+    primary: '#E11D48',
+    secondary: '#FDA4AF',
+    baseLight: '#FFF1F2',
+    gold: '#D97706',
+  },
+  {
+    id: 'warm-amber',
+    name: 'Amber & Bronze',
+    primary: '#D97706',
+    secondary: '#FDE68A',
+    baseLight: '#FFFBEB',
+    gold: '#B45309',
+  },
+  {
+    id: 'olive-lime',
+    name: 'Olive & Sand',
+    primary: '#65A30D',
+    secondary: '#BEF264',
+    baseLight: '#FEFCE8',
+    gold: '#CA8A04',
+  },
+  {
+    id: 'terracotta',
+    name: 'Terracotta & Rust',
+    primary: '#C2410C',
+    secondary: '#FDBA74',
+    baseLight: '#FFF7ED',
+    gold: '#B45309',
+  },
+  {
+    id: 'slate-blue',
+    name: 'Slate & Silver',
+    primary: '#475569',
+    secondary: '#CBD5E1',
+    baseLight: '#F8FAFC',
+    gold: '#3B82F6',
+  },
+  {
+    id: 'obsidian',
+    name: 'Obsidian Minimal',
+    primary: '#27272A',
+    secondary: '#A1A1AA',
+    baseLight: '#F4F4F5',
+    gold: '#71717A',
+  },
+]
+
 const MERN_PILLARS = [
   {
     letter: 'M',
@@ -122,14 +221,15 @@ const MERN_PILLARS = [
   },
 ]
 
+// All "Mastery" replaced with "Proficient" as requested
 const SKILLS_MATRIX = [
   { name: 'React.js (v18+)', category: 'frontend', level: 'Advanced', icon: Code2 },
   { name: 'JavaScript (ES6+)', category: 'frontend', level: 'Advanced', icon: FileCode2 },
-  { name: 'HTML5 & CSS3', category: 'frontend', level: 'Mastery', icon: Layers },
+  { name: 'HTML5 & CSS3', category: 'frontend', level: 'Proficient', icon: Layers },
   { name: 'Tailwind CSS', category: 'frontend', level: 'Proficient', icon: Palette },
   { name: 'Bootstrap 5', category: 'frontend', level: 'Advanced', icon: Layers },
   { name: 'GSAP Animation', category: 'frontend', level: 'Advanced', icon: Sparkles },
-  { name: 'Responsive Design', category: 'frontend', level: 'Mastery', icon: Monitor },
+  { name: 'Responsive Design', category: 'frontend', level: 'Proficient', icon: Monitor },
   { name: 'Node.js Runtime', category: 'backend', level: 'Proficient', icon: Server },
   { name: 'Express.js APIs', category: 'backend', level: 'Proficient', icon: Server },
   { name: 'RESTful API Design', category: 'backend', level: 'Advanced', icon: Cpu },
@@ -295,7 +395,12 @@ const SOCIAL_LINKS = [
 ]
 
 export default function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
+  // Theme defaults to 'light' (white) as requested!
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+  const [selectedPalette, setSelectedPalette] = useState(
+    () => localStorage.getItem('portfolio-palette') || 'sage-gold'
+  )
+  const [paletteMenuOpen, setPaletteMenuOpen] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
   const [terminalTab, setTerminalTab] = useState('luqman.js')
   const [skillCategory, setSkillCategory] = useState('all')
@@ -304,6 +409,7 @@ export default function App() {
   const [contactStatus, setContactStatus] = useState('')
   const [toastMessage, setToastMessage] = useState('')
   const toastTimeoutRef = useRef(null)
+  const palettePickerRef = useRef(null)
 
   // Typing animation state
   const [typedText, setTypedText] = useState(WORDS[0])
@@ -314,8 +420,42 @@ export default function App() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  // Apply color palette
+  const applyPalette = (pal) => {
+    setSelectedPalette(pal.id)
+    localStorage.setItem('portfolio-palette', pal.id)
+    const root = document.documentElement
+    root.style.setProperty('--palette-primary', pal.primary)
+    root.style.setProperty('--palette-secondary', pal.secondary)
+    root.style.setProperty('--palette-base-light', pal.baseLight)
+    root.style.setProperty('--palette-gold', pal.gold)
+    showToast(`Palette switched to ${pal.name}`)
+  }
+
+  // Load saved palette on mount
+  useEffect(() => {
+    const savedId = localStorage.getItem('portfolio-palette') || 'sage-gold'
+    const found = PALETTES.find((p) => p.id === savedId) || PALETTES[0]
+    const root = document.documentElement
+    root.style.setProperty('--palette-primary', found.primary)
+    root.style.setProperty('--palette-secondary', found.secondary)
+    root.style.setProperty('--palette-base-light', found.baseLight)
+    root.style.setProperty('--palette-gold', found.gold)
+  }, [])
+
+  // Close palette dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (palettePickerRef.current && !palettePickerRef.current.contains(e.target)) {
+        setPaletteMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
   }
 
   const showToast = (msg) => {
@@ -380,7 +520,7 @@ export default function App() {
         delay: 0.15,
       })
 
-      // Terminal 3D entrance
+      // Terminal entrance
       gsap.from('.code-window', {
         scale: 0.9,
         opacity: 0,
@@ -481,7 +621,6 @@ export default function App() {
     const message = data.get('message')
 
     if (!WEB3FORMS_KEY) {
-      // Fallback to mailto
       window.location.href = `mailto:meluqman06@gmail.com?subject=${encodeURIComponent(
         `Portfolio Inquiry from ${name}`
       )}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`
@@ -564,10 +703,7 @@ export default function App() {
           <ul className="nav-links">
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={() => setNavOpen(false)}
-                >
+                <a href={`#${item.id}`} onClick={() => setNavOpen(false)}>
                   {item.label}
                 </a>
               </li>
@@ -575,14 +711,76 @@ export default function App() {
           </ul>
 
           <div className="nav-actions">
+            {/* Palette Switcher Button & Dropdown */}
+            <div className="palette-picker-container" ref={palettePickerRef}>
+              <button
+                className="palette-toggle-btn"
+                type="button"
+                onClick={() => setPaletteMenuOpen(!paletteMenuOpen)}
+                aria-label="Change color theme palette"
+                title="Change color theme palette"
+              >
+                <Palette size={18} />
+              </button>
+
+              {paletteMenuOpen && (
+                <div className="palette-dropdown-panel" role="menu">
+                  <div className="palette-dropdown-head">
+                    <strong>Theme Color Palettes</strong>
+                    <span>{PALETTES.length} Presets</span>
+                  </div>
+                  <div className="palette-grid">
+                    {PALETTES.map((pal) => (
+                      <button
+                        key={pal.id}
+                        type="button"
+                        className={`palette-card-item ${
+                          selectedPalette === pal.id ? 'active' : ''
+                        }`}
+                        onClick={() => {
+                          applyPalette(pal)
+                          setPaletteMenuOpen(false)
+                        }}
+                      >
+                        <div className="palette-dots-row">
+                          <span
+                            className="palette-mini-dot"
+                            style={{ backgroundColor: pal.primary }}
+                            title="Primary"
+                          />
+                          <span
+                            className="palette-mini-dot"
+                            style={{ backgroundColor: pal.secondary }}
+                            title="Secondary"
+                          />
+                          <span
+                            className="palette-mini-dot"
+                            style={{ backgroundColor: pal.baseLight }}
+                            title="Base Light"
+                          />
+                          <span
+                            className="palette-mini-dot"
+                            style={{ backgroundColor: pal.gold }}
+                            title="Gold Accent"
+                          />
+                        </div>
+                        <span className="palette-item-name">{pal.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Dark / Light Mode Toggle */}
             <button
               className="theme-toggle-btn"
               type="button"
               onClick={toggleTheme}
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
 
             <a href="#contact" className="nav-cta-btn">
@@ -608,12 +806,7 @@ export default function App() {
         <section className="hero" id="home">
           <div className="wrap hero-grid">
             <div className="hero-content">
-              <div className="hero-reveal">
-                <span className="hero-status-pill">
-                  <span className="pulse-dot" />
-                  Available for Full-Stack &amp; MERN Opportunities
-                </span>
-              </div>
+              {/* Removed status pill badge as requested */}
 
               <h1 className="hero-reveal">
                 Hi, I'm <span className="gradient-text">Muhammad Luqman</span>
@@ -654,13 +847,13 @@ export default function App() {
 
               <div className="hero-reveal hero-tags">
                 <span>
-                  <CheckCircle2 size={15} color="var(--accent-emerald)" /> BS Computer Science (2024-2028)
+                  <CheckCircle2 size={15} color="var(--palette-primary)" /> BS Computer Science (2024-2028)
                 </span>
                 <span>
-                  <CheckCircle2 size={15} color="var(--accent-cyan)" /> Saylani Mass IT Certified
+                  <CheckCircle2 size={15} color="var(--palette-gold)" /> Saylani Mass IT Certified
                 </span>
                 <span>
-                  <CheckCircle2 size={15} color="var(--accent-indigo)" /> 1+ Yr Design at Prozila
+                  <CheckCircle2 size={15} color="var(--palette-primary)" /> 1+ Yr Design at Prozila
                 </span>
               </div>
             </div>
@@ -881,7 +1074,7 @@ export default function App() {
                       </div>
                       <div className="code-line">
                         <span className="line-no">7</span>
-                        <span className="token-string" style={{ color: 'var(--accent-emerald)' }}>
+                        <span className="token-string" style={{ color: 'var(--palette-primary)' }}>
                           &gt; ✓ Compiled successfully in 0.42s (0 errors)
                         </span>
                       </div>
@@ -916,9 +1109,7 @@ export default function App() {
         <section className="fade-section" id="about">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <Sparkles size={14} /> Background &amp; Vision
-              </span>
+              {/* Removed "Background & Vision" tag as requested */}
               <h2 className="section-title">
                 Full-Stack Precision Meets <span className="gradient-text">Creative Design</span>
               </h2>
@@ -944,19 +1135,19 @@ export default function App() {
 
                 <div className="about-highlights">
                   <div className="about-hl-item">
-                    <CheckCircle2 size={18} color="var(--accent-cyan)" />
+                    <CheckCircle2 size={18} color="var(--palette-primary)" />
                     <span>MERN Architecture &amp; REST APIs</span>
                   </div>
                   <div className="about-hl-item">
-                    <CheckCircle2 size={18} color="var(--accent-indigo)" />
+                    <CheckCircle2 size={18} color="var(--palette-gold)" />
                     <span>Offline Desktop Apps (Electron)</span>
                   </div>
                   <div className="about-hl-item">
-                    <CheckCircle2 size={18} color="var(--accent-purple)" />
+                    <CheckCircle2 size={18} color="var(--palette-primary)" />
                     <span>Interactive GSAP Micro-Motion</span>
                   </div>
                   <div className="about-hl-item">
-                    <CheckCircle2 size={18} color="var(--accent-emerald)" />
+                    <CheckCircle2 size={18} color="var(--palette-gold)" />
                     <span>Multilingual (4 Languages)</span>
                   </div>
                 </div>
@@ -991,9 +1182,7 @@ export default function App() {
         <section className="fade-section" id="stack">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <Cpu size={14} /> Core Technology
-              </span>
+              {/* Removed "Core Technology" tag as requested */}
               <h2 className="section-title">
                 The <span className="gradient-text">MERN Stack</span> Architecture
               </h2>
@@ -1072,7 +1261,7 @@ export default function App() {
                   return (
                     <div className="skill-matrix-item" key={sk.name}>
                       <div className="skill-item-info">
-                        <Icon size={18} color="var(--accent-indigo)" />
+                        <Icon size={18} color="var(--palette-primary)" />
                         <span>{sk.name}</span>
                       </div>
                       <span className="skill-item-level">{sk.level}</span>
@@ -1088,9 +1277,7 @@ export default function App() {
         <section className="fade-section" id="work">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <Briefcase size={14} /> Production Portfolio
-              </span>
+              {/* Removed "Production Portfolio" tag as requested */}
               <h2 className="section-title">
                 Featured <span className="gradient-text">Software Projects</span>
               </h2>
@@ -1113,7 +1300,7 @@ export default function App() {
                   </div>
 
                   <div className={`project-banner-preview ${proj.bannerClass}`}>
-                    <span className="mono" style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)' }}>
+                    <span className="mono" style={{ fontSize: '11px', color: 'rgba(255,255,255,0.75)' }}>
                       MODULE 0{i + 1}
                     </span>
                     <h3 className="project-banner-title">{proj.title}</h3>
@@ -1153,9 +1340,7 @@ export default function App() {
                       <a
                         href="#contact"
                         className="btn btn-outline btn-sm"
-                        onClick={() =>
-                          showToast(`Inquiring about ${proj.title}`)
-                        }
+                        onClick={() => showToast(`Inquiring about ${proj.title}`)}
                       >
                         <span>Request Demo</span>
                         <ChevronRight size={14} />
@@ -1185,9 +1370,7 @@ export default function App() {
         <section className="fade-section" id="services">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <Layers size={14} /> What I Deliver
-              </span>
+              {/* Removed "What I Deliver" tag as requested */}
               <h2 className="section-title">
                 Comprehensive <span className="gradient-text">Engineering Services</span>
               </h2>
@@ -1218,9 +1401,7 @@ export default function App() {
         <section className="fade-section" id="certificates">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <Award size={14} /> Verified Credentials
-              </span>
+              {/* Removed "Verified Credentials" tag as requested */}
               <h2 className="section-title">
                 Certifications &amp; <span className="gradient-text">Achievements</span>
               </h2>
@@ -1329,7 +1510,7 @@ export default function App() {
                   <span>{activeModalCert.year || 'Certified'}</span>
                 </div>
                 <h3>{activeModalCert.title}</h3>
-                <p style={{ color: 'var(--accent-indigo)', fontWeight: 600, marginBottom: '10px' }}>
+                <p style={{ color: 'var(--palette-primary)', fontWeight: 600, marginBottom: '10px' }}>
                   Issued by: {activeModalCert.issuer}
                 </p>
                 <p className="cert-desc">{activeModalCert.description}</p>
@@ -1342,9 +1523,7 @@ export default function App() {
         <section className="fade-section" id="journey">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <GraduationCap size={14} /> Career Timeline
-              </span>
+              {/* Removed "Career Timeline" tag as requested */}
               <h2 className="section-title">
                 Education &amp; <span className="gradient-text">Experience</span>
               </h2>
@@ -1362,7 +1541,7 @@ export default function App() {
                     <div className="timeline-dot" />
                     <div className="card timeline-card">
                       <div className="timeline-meta">
-                        <Icon size={16} color="var(--accent-cyan)" />
+                        <Icon size={16} color="var(--palette-primary)" />
                         <span className="timeline-period">{item.period}</span>
                       </div>
                       <h3 className="timeline-role">{item.role}</h3>
@@ -1380,9 +1559,7 @@ export default function App() {
         <section className="fade-section" id="contact">
           <div className="wrap">
             <div className="section-head fade-item">
-              <span className="section-tag">
-                <Mail size={14} /> Let's Connect
-              </span>
+              {/* Removed "Let's Connect" tag as requested */}
               <h2 className="section-title">
                 Have a Project in Mind? <span className="gradient-text">Let's Build It</span>
               </h2>
@@ -1445,7 +1622,7 @@ export default function App() {
                     className="btn btn-secondary"
                     onClick={handleWhatsAppSend}
                   >
-                    <MessageCircle size={16} color="var(--accent-emerald)" />
+                    <MessageCircle size={16} color="var(--palette-primary)" />
                     <span>Send on WhatsApp</span>
                   </button>
                 </div>
@@ -1489,7 +1666,10 @@ export default function App() {
 
                 <div className="card info-card">
                   <div className="info-card-left">
-                    <div className="info-icon" style={{ color: 'var(--accent-emerald)', background: 'rgba(16,185,129,0.12)' }}>
+                    <div
+                      className="info-icon"
+                      style={{ color: 'var(--palette-primary)', background: 'rgba(143,162,138,0.15)' }}
+                    >
                       <Phone size={20} />
                     </div>
                     <div>
@@ -1510,7 +1690,10 @@ export default function App() {
 
                 <div className="card info-card">
                   <div className="info-card-left">
-                    <div className="info-icon" style={{ color: 'var(--accent-cyan)', background: 'rgba(6,182,212,0.12)' }}>
+                    <div
+                      className="info-icon"
+                      style={{ color: 'var(--palette-gold)', background: 'rgba(200,169,107,0.15)' }}
+                    >
                       <Compass size={20} />
                     </div>
                     <div>
@@ -1564,8 +1747,9 @@ export default function App() {
             </div>
           </div>
 
+          {/* Clean footer line without the removed slogan */}
           <div className="footer-bottom">
-            &copy; {new Date().getFullYear()} Muhammad Luqman. Built with React, Vite, Node, and GSAP. All rights reserved.
+            &copy; {new Date().getFullYear()} Muhammad Luqman
           </div>
         </div>
       </footer>
@@ -1573,7 +1757,7 @@ export default function App() {
       {/* Floating Toast Notification */}
       {toastMessage && (
         <aside className="toast-notice" role="status" aria-live="polite">
-          <Check size={16} color="var(--accent-emerald)" />
+          <Check size={16} color="var(--palette-primary)" />
           <span>{toastMessage}</span>
         </aside>
       )}
