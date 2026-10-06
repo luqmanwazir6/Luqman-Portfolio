@@ -801,6 +801,15 @@ export default function App() {
         </nav>
       </header>
 
+      {/* Mobile Drawer Backdrop */}
+      {navOpen && (
+        <div
+          className="mobile-backdrop"
+          onClick={() => setNavOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       <main>
         {/* ================= HERO SECTION ================= */}
         <section className="hero" id="home">
