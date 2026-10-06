@@ -31,6 +31,8 @@ import {
   Compass,
   ArrowUpRight,
   MessageCircle,
+  FileText,
+  Download,
 } from 'lucide-react'
 import './index.css'
 import { WEB3FORMS_KEY, WHATSAPP } from './config.js'
@@ -69,6 +71,192 @@ function XTwitterIcon({ size = 20, className = '' }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
+
+// ================= REAL BRAND TECH ICONS (MERN & ECOSYSTEM) =================
+function ReactIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="-11.5 -10.23174 23 20.46348" fill="none" className={className}>
+      <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
+      <g stroke="#61DAFB" strokeWidth="1" fill="none">
+        <ellipse rx="11" ry="4.2" />
+        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+      </g>
+    </svg>
+  )
+}
+
+function NextjsIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 180 180" fill="none" className={className}>
+      <circle cx="90" cy="90" r="88" fill="#050505" stroke="rgba(255,255,255,0.25)" strokeWidth="4" />
+      <path
+        d="M149.5 157.5L69.1 54H54v72h12.1V69.4L140 164.8c3.3-2.2 6.5-4.6 9.5-7.3z"
+        fill="url(#nextGrad1)"
+      />
+      <rect x="115" y="54" width="12" height="72" fill="url(#nextGrad2)" />
+      <defs>
+        <linearGradient id="nextGrad1" x1="109" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="nextGrad2" x1="121" y1="54" x2="120.8" y2="106.9" gradientUnits="userSpaceOnUse">
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+}
+
+function TypeScriptIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <rect width="128" height="128" rx="20" fill="#3178C6" />
+      <path
+        d="M72 60.1V49H34v11.1h12.6v57.9h12.8V60.1H72zm14.2 38.4c3.9 5.6 9.4 9.1 17 9.1 6.8 0 11.5-3.4 11.5-8.8 0-5.8-4.4-7.9-12.9-11.5-12.3-5.3-17.8-11-17.8-21.7 0-12 9.4-20.7 24.3-20.7 10.4 0 18.3 3.9 23.3 11.2l-8.7 7c-3.2-4.6-7.8-7.1-14.4-7.1-6.1 0-10.1 3.5-10.1 8.1 0 5.3 3.8 7.2 12.6 11 12.8 5.5 18.2 11.2 18.2 22.3 0 13.1-10 21.7-25.8 21.7-12.8 0-21.8-5.3-26.7-13.6l9.5-7z"
+        fill="#ffffff"
+      />
+    </svg>
+  )
+}
+
+function JavaScriptIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <rect width="128" height="128" rx="20" fill="#F7DF1E" />
+      <path
+        d="M74.9 98.4c2.2 3.7 5.2 6.1 9.7 6.1 4.9 0 8-2.4 8-5.8 0-4-3.2-5.5-8.6-7.8l-3-1.3c-8.5-3.6-14.1-8.2-14.1-18.3 0-9.1 7-16 17.7-16 7.7 0 13.3 2.7 17.2 9.4l-7.5 4.8c-2-3.6-4.2-5.1-8.7-5.1-4.1 0-7 2.6-7 5.6 0 3.7 2.7 5.3 7.4 7.3l3 1.3c10.1 4.3 15.5 8.8 15.5 19 0 10.8-8.5 16.7-19.8 16.7-11 0-18-5.2-21.8-12.8l9.1-5.1zm-38.9 1.1c1.7 2.9 3.9 5.4 8.1 5.4 4.3 0 7.1-2.1 7.1-10.4V46h11.2v48.7c0 14.2-8.3 20.4-20.1 20.4-9.2 0-14.8-4.6-17.8-11.1l11.5-4.5z"
+        fill="#000000"
+      />
+    </svg>
+  )
+}
+
+function NodejsIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <path d="M64 8.4l48.6 28.1v56.2L64 120.7 15.4 92.6V36.5L64 8.4z" fill="#339933" />
+      <path d="M64 8.4L15.4 36.5l48.6 28.1 48.6-28.1L64 8.4z" fill="#66CC33" />
+      <path d="M64 64.5L15.4 36.5v56.2L64 120.7V64.5z" fill="#539E43" />
+      <path d="M64 64.5v56.2l48.6-28.1V36.5L64 64.5z" fill="#339933" />
+    </svg>
+  )
+}
+
+function ExpressIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <circle cx="64" cy="64" r="58" fill="rgba(255,255,255,0.06)" stroke="currentColor" strokeWidth="3" opacity="0.45" />
+      <text
+        x="64"
+        y="80"
+        textAnchor="middle"
+        fill="currentColor"
+        fontSize="54"
+        fontWeight="800"
+        fontFamily="system-ui, -apple-system, sans-serif"
+        letterSpacing="-3"
+      >
+        ex
+      </text>
+    </svg>
+  )
+}
+
+function MongoIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <path
+        d="M64 12c-2.3 8.2-13.6 27.5-22.3 47.7-10.4 24.3-7.5 45.4 6.8 57.9 3.9 3.4 9.1 5.9 15.5 7.4V12z"
+        fill="#47A248"
+      />
+      <path
+        d="M64 12c2.3 8.2 13.6 27.5 22.3 47.7 10.4 24.3 7.5 45.4-6.8 57.9-3.9 3.4-9.1 5.9-15.5 7.4V12z"
+        fill="#5BBF5C"
+      />
+      <path
+        d="M64 125c-.2-.5-.5-1.1-.7-1.7-1.1-2.9-1.3-6.1-.6-9.1.7-3.1 2.3-5.9 4.6-8.1.4.6.7 1.2.9 1.8 1.1 2.9 1.3 6.1.6 9.1-.8 3.1-2.4 5.9-4.8 8z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  )
+}
+
+function PostgresIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <path
+        d="M64 14C36.4 14 14 36.4 14 64c0 19.3 11 36.1 27.2 44.5 1.5-6.5 2.8-13.8 3.8-21.7-7-1.8-12-8.2-12-15.8 0-9 7.3-16.3 16.3-16.3 4.2 0 8.1 1.6 11 4.2 4.4-4.8 10.7-7.9 17.7-7.9 5.2 0 10 1.7 13.9 4.6 2.6-3 6.4-4.9 10.8-4.9 7.9 0 14.3 6.4 14.3 14.3 0 7.1-5.1 13-11.9 14.1 1.2 8.4 2.7 16.2 4.4 23.1C103 99.8 114 83.2 114 64c0-27.6-22.4-50-50-50z"
+        fill="#336791"
+      />
+      <circle cx="53" cy="59" r="4.5" fill="#ffffff" />
+      <circle cx="75" cy="59" r="4.5" fill="#ffffff" />
+      <path d="M48 82c5-3 10-4 16-4s11 1 16 4" stroke="#ffffff" strokeWidth="3" fill="none" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function TailwindIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <path
+        d="M32 48c4-8 10-12 18-12 12 0 15 9 22 10 7 1 12-4 16-10-4 8-10 12-18 12-12 0-15-9-22-10-7-1-12 4-16 10zm-16 32c4-8 10-12 18-12 12 0 15 9 22 10 7 1 12-4 16-10-4 8-10 12-18 12-12 0-15-9-22-10-7-1-12 4-16 10z"
+        fill="#38BDF8"
+      />
+    </svg>
+  )
+}
+
+function ReduxIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <g fill="#764ABC">
+        <path d="M64 20c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-30.8 17.8c-4.4 0-8 3.6-8 8 0 4.4 3.6 8 8 8s8-3.6 8-8c0-4.4-3.6-8-8-8zm61.6 0c-4.4 0-8 3.6-8 8 0 4.4 3.6 8 8 8s8-3.6 8-8c0-4.4-3.6-8-8-8zm-46.2 46.2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm30.8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" />
+        <ellipse cx="64" cy="64" rx="34" ry="16" fill="none" stroke="#764ABC" strokeWidth="4" transform="rotate(-30 64 64)" />
+        <ellipse cx="64" cy="64" rx="34" ry="16" fill="none" stroke="#764ABC" strokeWidth="4" transform="rotate(30 64 64)" />
+        <ellipse cx="64" cy="64" rx="34" ry="16" fill="none" stroke="#764ABC" strokeWidth="4" transform="rotate(90 64 64)" />
+      </g>
+    </svg>
+  )
+}
+
+function GitIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <path
+        d="M123.6 57.5L70.5 4.4c-3.2-3.2-8.4-3.2-11.6 0L47.3 16c4.3 2.6 7.4 7 8.3 12.2 4.8 1.9 8.2 6.5 8.3 11.9 0 1.2-.2 2.3-.5 3.4l16.1 16.1c1.1-.3 2.2-.5 3.4-.5 7.1 0 12.8 5.7 12.8 12.8s-5.7 12.8-12.8 12.8-12.8-5.7-12.8-12.8c0-1.2.2-2.3.5-3.4L55 52.4c-1.1.3-2.2.5-3.4.5-4.5 0-8.5-2.4-10.8-6l-20 20c-3.2 3.2-3.2 8.4 0 11.6l53.1 53.1c3.2 3.2 8.4 3.2 11.6 0l53.1-53.1c3.2-3.2 3.2-8.4 0-11.6z"
+        fill="#F05032"
+      />
+      <circle cx="51.6" cy="38.7" r="7.7" fill="#ffffff" />
+      <circle cx="83.1" cy="71.9" r="7.7" fill="#ffffff" />
+      <path d="M51.6 44v34.4" stroke="#ffffff" strokeWidth="5.5" />
+      <circle cx="51.6" cy="85.4" r="7.7" fill="#ffffff" />
+    </svg>
+  )
+}
+
+function DockerIcon({ size = 42, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className}>
+      <path
+        d="M120.5 56.4c-1.6-.9-10.5-5.3-21.7-2.3-1.6-4.9-5-9.2-9.6-12.2l-2.4 2.1c4.5 3.8 6.9 8.5 7.3 14.1-1.3.8-3.4 1.8-6.1 2.3H5.9c-2.4 8.7-.3 23.9 9.8 33.3 11.4 10.6 28.5 13.5 52.8 13.5 38.6 0 54.4-16.7 57.3-36.2 3.8-2 6.6-5.8 7.2-9.9l-12.5-4.7z"
+        fill="#2496ED"
+      />
+      <g fill="#2496ED">
+        <rect x="18" y="47" width="10" height="9" rx="1.5" />
+        <rect x="31" y="47" width="10" height="9" rx="1.5" />
+        <rect x="44" y="47" width="10" height="9" rx="1.5" />
+        <rect x="57" y="47" width="10" height="9" rx="1.5" />
+        <rect x="70" y="47" width="10" height="9" rx="1.5" />
+        <rect x="31" y="35" width="10" height="9" rx="1.5" />
+        <rect x="44" y="35" width="10" height="9" rx="1.5" />
+        <rect x="57" y="35" width="10" height="9" rx="1.5" />
+        <rect x="44" y="23" width="10" height="9" rx="1.5" />
+      </g>
     </svg>
   )
 }
@@ -188,57 +376,82 @@ const PALETTES = [
 
 const MERN_PILLARS = [
   {
-    letter: 'M',
     name: 'MongoDB',
-    type: 'letter-m',
+    icon: MongoIcon,
+    brandColor: '#47A248',
+    glowColor: 'rgba(71, 162, 72, 0.35)',
     title: 'NoSQL Database & Modeling',
     description: 'Document-oriented database with flexible JSON schemas, Mongoose ODM, complex aggregations, and MongoDB Atlas cloud deployment.',
     skills: ['Mongoose ODM', 'Aggregation Pipelines', 'Schema Validation', 'Atlas Cluster', 'Data Indexing'],
   },
   {
-    letter: 'E',
     name: 'Express.js',
-    type: 'letter-e',
+    icon: ExpressIcon,
+    brandColor: 'var(--palette-gold)',
+    glowColor: 'rgba(200, 169, 107, 0.35)',
     title: 'Fast RESTful API Architecture',
     description: 'Minimalist web framework building scalable REST APIs, secure middleware pipelines, JWT auth, and structured error handling.',
     skills: ['RESTful Routing', 'JWT & bcrypt Auth', 'Middleware Chaining', 'CORS & Security', 'Validation'],
   },
   {
-    letter: 'R',
     name: 'React.js',
-    type: 'letter-r',
+    icon: ReactIcon,
+    brandColor: '#61DAFB',
+    glowColor: 'rgba(97, 218, 251, 0.35)',
     title: 'Interactive User Interfaces',
     description: 'Modern component-driven SPAs with React hooks, context state management, responsive design, and fluid GSAP micro-animations.',
     skills: ['Hooks & Custom Hooks', 'Context API', 'GSAP Animation', 'Component Architecture', 'Tailwind / CSS3'],
   },
   {
-    letter: 'N',
     name: 'Node.js',
-    type: 'letter-n',
+    icon: NodejsIcon,
+    brandColor: '#5FA04E',
+    glowColor: 'rgba(95, 160, 78, 0.35)',
     title: 'Asynchronous Server Runtime',
     description: 'Event-driven, non-blocking I/O runtime executing backend logic, file processing, REST servers, and third-party API integrations.',
     skills: ['Async/Await & Streams', 'NPM Ecosystem', 'Environment Config', 'Modular Architecture', 'API Services'],
   },
 ]
 
+// 12 Authentic Technologies Grid matching Image 3
+const TECH_GRID_ITEMS = [
+  { name: 'React', icon: ReactIcon, glowColor: 'rgba(97, 218, 251, 0.4)' },
+  { name: 'Next.js', icon: NextjsIcon, glowColor: 'rgba(255, 255, 255, 0.3)' },
+  { name: 'TypeScript', icon: TypeScriptIcon, glowColor: 'rgba(49, 120, 198, 0.4)' },
+  { name: 'JavaScript', icon: JavaScriptIcon, glowColor: 'rgba(247, 223, 30, 0.4)' },
+  { name: 'Node.js', icon: NodejsIcon, glowColor: 'rgba(95, 160, 78, 0.4)' },
+  { name: 'Express', icon: ExpressIcon, glowColor: 'rgba(200, 200, 200, 0.3)' },
+  { name: 'MongoDB', icon: MongoIcon, glowColor: 'rgba(71, 162, 72, 0.4)' },
+  { name: 'PostgreSQL', icon: PostgresIcon, glowColor: 'rgba(51, 103, 145, 0.4)' },
+  { name: 'Tailwind CSS', icon: TailwindIcon, glowColor: 'rgba(56, 189, 248, 0.4)' },
+  { name: 'Redux', icon: ReduxIcon, glowColor: 'rgba(118, 74, 188, 0.4)' },
+  { name: 'Git', icon: GitIcon, glowColor: 'rgba(240, 80, 50, 0.4)' },
+  { name: 'Docker', icon: DockerIcon, glowColor: 'rgba(36, 150, 237, 0.4)' },
+]
+
 // All "Mastery" replaced with "Proficient" as requested
 const SKILLS_MATRIX = [
-  { name: 'React.js (v18+)', category: 'frontend', level: 'Advanced', icon: Code2 },
-  { name: 'JavaScript (ES6+)', category: 'frontend', level: 'Advanced', icon: FileCode2 },
+  { name: 'React.js (v18+)', category: 'frontend', level: 'Advanced', icon: ReactIcon },
+  { name: 'JavaScript (ES6+)', category: 'frontend', level: 'Advanced', icon: JavaScriptIcon },
+  { name: 'TypeScript', category: 'frontend', level: 'Proficient', icon: TypeScriptIcon },
+  { name: 'Next.js', category: 'frontend', level: 'Proficient', icon: NextjsIcon },
+  { name: 'Tailwind CSS', category: 'frontend', level: 'Proficient', icon: TailwindIcon },
+  { name: 'Redux State', category: 'frontend', level: 'Proficient', icon: ReduxIcon },
   { name: 'HTML5 & CSS3', category: 'frontend', level: 'Proficient', icon: Layers },
-  { name: 'Tailwind CSS', category: 'frontend', level: 'Proficient', icon: Palette },
   { name: 'Bootstrap 5', category: 'frontend', level: 'Advanced', icon: Layers },
   { name: 'GSAP Animation', category: 'frontend', level: 'Advanced', icon: Sparkles },
   { name: 'Responsive Design', category: 'frontend', level: 'Proficient', icon: Monitor },
-  { name: 'Node.js Runtime', category: 'backend', level: 'Proficient', icon: Server },
-  { name: 'Express.js APIs', category: 'backend', level: 'Proficient', icon: Server },
+  { name: 'Node.js Runtime', category: 'backend', level: 'Proficient', icon: NodejsIcon },
+  { name: 'Express.js APIs', category: 'backend', level: 'Proficient', icon: ExpressIcon },
   { name: 'RESTful API Design', category: 'backend', level: 'Advanced', icon: Cpu },
   { name: 'JWT & Authentication', category: 'backend', level: 'Proficient', icon: CheckCircle2 },
-  { name: 'MongoDB & Mongoose', category: 'database', level: 'Proficient', icon: Database },
+  { name: 'MongoDB & Mongoose', category: 'database', level: 'Proficient', icon: MongoIcon },
+  { name: 'PostgreSQL Database', category: 'database', level: 'Proficient', icon: PostgresIcon },
   { name: 'SQLite Database', category: 'database', level: 'Proficient', icon: Database },
   { name: 'Prisma ORM', category: 'database', level: 'Familiar', icon: Database },
+  { name: 'Docker Containers', category: 'tools', level: 'Proficient', icon: DockerIcon },
+  { name: 'Git & GitHub', category: 'tools', level: 'Advanced', icon: GitIcon },
   { name: 'Electron.js (Desktop)', category: 'tools', level: 'Proficient', icon: Monitor },
-  { name: 'Git & GitHub', category: 'tools', level: 'Advanced', icon: GithubIcon },
   { name: 'Postman API Testing', category: 'tools', level: 'Proficient', icon: Terminal },
   { name: 'Vite & Build Tools', category: 'tools', level: 'Advanced', icon: Cpu },
   { name: 'Graphic Design', category: 'creative', level: '1+ Year Studio', icon: Palette },
@@ -271,7 +484,7 @@ const WORDS = [
 ]
 
 const STATS = [
-  { num: 3, suffix: '+', label: 'Production Projects Delivered' },
+  { num: 6, suffix: '+', label: 'Production Projects Delivered' },
   { num: 1, suffix: '+', label: 'Year Studio Design Experience' },
   { num: 100, suffix: '+', label: 'Creative & Video Deliverables' },
   { num: 90, suffix: '%', label: 'Client Engagement Lift (Prozila)' },
@@ -279,10 +492,29 @@ const STATS = [
 
 const PROJECTS = [
   {
+    title: 'D.I. Khan Health Finder',
+    subtitle: 'Healthcare Directory & Emergency Portal',
+    badge: 'Full-Stack · Live Web App',
+    bannerClass: 'banner-p0',
+    image: 'health-finder.jpg',
+    description:
+      'A modern full-stack healthcare directory and emergency locator engineered for Dera Ismail Khan, connecting citizens with verified doctors, clinics, emergency facilities, and blood donor contacts.',
+    features: [
+      'Verified doctor & clinic directory with specialty search & clinic timings',
+      'Emergency service locator for ambulances, 24/7 pharmacies, & ER units',
+      'Direct dial action and location directions for emergency patient care',
+      'Fast responsive search and filtering built with React & modern web APIs',
+    ],
+    tags: ['React.js', 'Vite', 'Tailwind CSS', 'REST APIs', 'Vercel'],
+    github: 'https://github.com/luqmanwazir06',
+    demo: 'https://d-i-khan-health-finder.vercel.app/',
+  },
+  {
     title: 'Clinic Management System',
     subtitle: 'Desktop EHR & Automated Billing',
     badge: 'Desktop App · Offline First',
-    bannerClass: 'banner-p0',
+    bannerClass: 'banner-p1',
+    image: 'clinic-system.jpg',
     description:
       'A robust, 100% offline desktop application engineered for healthcare clinics and doctors to manage daily operations securely without relying on continuous internet connectivity.',
     features: [
@@ -299,7 +531,8 @@ const PROJECTS = [
     title: 'Restaurant Management & POS Suite',
     subtitle: 'Point-of-Sale & Live Kitchen Ops',
     badge: 'Full-Stack · Multi-Channel',
-    bannerClass: 'banner-p1',
+    bannerClass: 'banner-p2',
+    image: 'restaurant-pos.jpg',
     description:
       'An end-to-end multi-module point-of-sale and restaurant administration suite supporting dine-in, takeaway, and delivery operations with synchronized kitchen workflows.',
     features: [
@@ -313,10 +546,11 @@ const PROJECTS = [
     demo: null,
   },
   {
-    title: 'Amazon E-Commerce Platform UI',
+    title: 'Amazon E-Commerce Platform',
     subtitle: 'High-Fidelity Storefront & Cart',
     badge: 'Frontend · Responsive Web',
-    bannerClass: 'banner-p2',
+    bannerClass: 'banner-p3',
+    image: 'amazon-clone.jpg',
     description:
       'A responsive e-commerce web platform inspired by Amazon featuring dynamic product categorization, cart state management, and modern fluid component styling.',
     features: [
@@ -326,6 +560,42 @@ const PROJECTS = [
       'Clean interactive UI with modern drawer navigation and micro-animations',
     ],
     tags: ['React.js', 'JavaScript ES6+', 'HTML5', 'Bootstrap 5', 'GSAP'],
+    github: 'https://github.com/luqmanwazir06',
+    demo: null,
+  },
+  {
+    title: 'Prozila Creative Agency Platform',
+    subtitle: 'Branding & Digital Showcase',
+    badge: 'Full-Stack · Agency UI',
+    bannerClass: 'banner-p4',
+    image: 'prozila-agency.jpg',
+    description:
+      'A modern visual portfolio and digital agency platform engineered for Prozila Studio, featuring case study deep-dives, video showcases, and client conversion funnels.',
+    features: [
+      'Interactive client case studies with high-fidelity visual showcases',
+      'Video reel presentation with fluid GSAP micro-animations',
+      'Direct WhatsApp & Web3Forms consultation pipeline',
+      'Engaging responsive design driving 90% client engagement growth',
+    ],
+    tags: ['React.js', 'GSAP Animation', 'Tailwind CSS', 'UI/UX Design'],
+    github: 'https://github.com/luqmanwazir06',
+    demo: null,
+  },
+  {
+    title: 'Saylani Mass IT Developer Hub',
+    subtitle: 'LMS & Developer Learning Portal',
+    badge: 'MERN Stack · LMS Platform',
+    bannerClass: 'banner-p5',
+    image: 'saylani-portal.jpg',
+    description:
+      'A collaborative learning management and student assignment portal engineered for Saylani Web Development batches, featuring course tracks, code reviews, and student progress metrics.',
+    features: [
+      'Student & instructor role-based dashboards with secure JWT auth',
+      'Assignment submission pipeline with automated deadline validation',
+      'Resource hub for JavaScript, React, Express, & MongoDB study tracks',
+      'Scalable MongoDB database schemas and Express.js REST APIs',
+    ],
+    tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JWT Auth'],
     github: 'https://github.com/luqmanwazir06',
     demo: null,
   },
@@ -406,6 +676,7 @@ export default function App() {
   const [skillCategory, setSkillCategory] = useState('all')
   const [certCategory, setCertCategory] = useState('all')
   const [activeModalCert, setActiveModalCert] = useState(null)
+  const [cvModalOpen, setCvModalOpen] = useState(false)
   const [contactStatus, setContactStatus] = useState('')
   const [toastMessage, setToastMessage] = useState('')
   const toastTimeoutRef = useRef(null)
@@ -453,6 +724,21 @@ export default function App() {
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  // Close modals on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setActiveModalCert(null)
+        setCvModalOpen(false)
+        setPaletteMenuOpen(false)
+        setNavOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
@@ -708,6 +994,19 @@ export default function App() {
                 </a>
               </li>
             ))}
+            <li className="nav-mobile-cv-item">
+              <button
+                type="button"
+                className="nav-mobile-cv-btn"
+                onClick={() => {
+                  setNavOpen(false)
+                  setCvModalOpen(true)
+                }}
+              >
+                <FileText size={15} />
+                <span>Resume / CV</span>
+              </button>
+            </li>
           </ul>
 
           <div className="nav-actions">
@@ -771,6 +1070,17 @@ export default function App() {
                 </div>
               )}
             </div>
+
+            {/* CV View / Download Button */}
+            <button
+              type="button"
+              className="nav-cv-btn"
+              onClick={() => setCvModalOpen(true)}
+              title="View & Download Muhammad Luqman's CV"
+            >
+              <FileText size={15} />
+              <span>CV</span>
+            </button>
 
             {/* Dark / Light Mode Toggle */}
             <button
@@ -837,8 +1147,17 @@ export default function App() {
                   <span>Explore Projects</span>
                   <ArrowUpRight size={18} />
                 </a>
-                <a href="#contact" className="btn btn-secondary">
-                  <Mail size={18} />
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setCvModalOpen(true)}
+                  title="View Muhammad Luqman's CV / Resume"
+                >
+                  <FileText size={18} color="var(--palette-primary)" />
+                  <span>View CV</span>
+                </button>
+                <a href="#contact" className="btn btn-outline">
+                  <Mail size={16} />
                   <span>Get In Touch</span>
                 </a>
                 <button
@@ -1201,24 +1520,59 @@ export default function App() {
               </p>
             </div>
 
-            {/* 4 Pillars of MERN */}
+            {/* 4 Pillars of MERN with Real Brand Logos */}
             <div className="mern-hero-grid fade-item">
-              {MERN_PILLARS.map((pillar) => (
-                <div className={`card mern-pillar-card`} key={pillar.name}>
-                  <div className={`mern-letter-badge ${pillar.type}`}>{pillar.letter}</div>
-                  <h3>{pillar.name}</h3>
-                  <p>{pillar.description}</p>
-                  <ul className="pillar-skills-list">
-                    {pillar.skills.map((s, idx) => (
-                      <li key={idx}>{s}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {MERN_PILLARS.map((pillar) => {
+                const PillarIcon = pillar.icon
+                return (
+                  <div className="card mern-pillar-card" key={pillar.name}>
+                    <div
+                      className="mern-real-icon-badge"
+                      style={{ boxShadow: `0 0 24px -2px ${pillar.glowColor}` }}
+                    >
+                      <PillarIcon size={36} />
+                    </div>
+                    <h3>{pillar.name}</h3>
+                    <p>{pillar.description}</p>
+                    <ul className="pillar-skills-list">
+                      {pillar.skills.map((s, idx) => (
+                        <li key={idx}>{s}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Core Tech Stack Showcase matching Image 3 */}
+            <div className="fade-item tech-grid-wrapper">
+              <div className="tech-grid-header">
+                <h3>Core Technologies &amp; Ecosystem</h3>
+                <p>Official toolchain and production frameworks powering modern applications</p>
+              </div>
+
+              <div className="tech-grid">
+                {TECH_GRID_ITEMS.map((item) => {
+                  const TechIcon = item.icon
+                  return (
+                    <div
+                      className="tech-card-item"
+                      key={item.name}
+                      style={{ '--glow-color': item.glowColor }}
+                    >
+                      <div className="tech-card-glow" />
+                      <div className="tech-icon-wrap">
+                        <TechIcon size={38} />
+                      </div>
+                      <span className="tech-card-name">{item.name}</span>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
 
             {/* Comprehensive Skills Matrix */}
-            <div className="fade-item" style={{ marginTop: '36px' }}>
+            <div className="fade-item" style={{ marginTop: '40px' }}>
               <div className="filter-tabs">
                 <button
                   type="button"
@@ -1297,32 +1651,47 @@ export default function App() {
             </div>
 
             <div className="projects-grid fade-item">
-              {PROJECTS.map((proj, i) => (
-                <div className="card project-card" key={proj.title}>
-                  <div className="project-card-header">
-                    <div className="window-dots">
-                      <span className="window-dot dot-red" />
-                      <span className="window-dot dot-yellow" />
-                      <span className="window-dot dot-green" />
+              {PROJECTS.map((proj) => (
+                <div className="card project-card-clean" key={proj.title}>
+                  {/* Clean Visual Image Container matching certificates */}
+                  <div className="project-img-container">
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/projects/${proj.image}`}
+                      alt={proj.title}
+                      loading="lazy"
+                    />
+                    {proj.demo && (
+                      <a
+                        href={proj.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-live-floating-pill"
+                        title="Open Live Website"
+                      >
+                        <span className="live-pulse-dot" />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="project-info-clean">
+                    <div className="project-meta-row">
+                      <span className="project-category-pill">{proj.badge}</span>
+                      {proj.demo && (
+                        <span className="project-live-status-tag">
+                          ● Online
+                        </span>
+                      )}
                     </div>
-                    <span className="project-badge-pill">{proj.badge}</span>
-                  </div>
 
-                  <div className={`project-banner-preview ${proj.bannerClass}`}>
-                    <span className="mono" style={{ fontSize: '11px', color: 'rgba(255,255,255,0.75)' }}>
-                      MODULE 0{i + 1}
-                    </span>
-                    <h3 className="project-banner-title">{proj.title}</h3>
-                  </div>
-
-                  <div className="project-card-content">
-                    <h3>{proj.title}</h3>
-                    <p>{proj.description}</p>
+                    <h3 className="project-clean-title">{proj.title}</h3>
+                    <span className="project-clean-subtitle">{proj.subtitle}</span>
+                    <p className="project-clean-desc">{proj.description}</p>
 
                     <ul className="project-feature-list">
                       {proj.features.map((feat, fIdx) => (
                         <li key={fIdx}>
-                          <CheckCircle2 size={16} />
+                          <CheckCircle2 size={15} />
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -1337,23 +1706,36 @@ export default function App() {
                     </div>
 
                     <div className="project-card-actions">
+                      {proj.demo && (
+                        <a
+                          href={proj.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary btn-sm"
+                        >
+                          <ExternalLink size={14} />
+                          <span>Live Demo</span>
+                        </a>
+                      )}
                       <a
                         href={proj.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-secondary btn-sm"
                       >
-                        <GithubIcon size={15} />
+                        <GithubIcon size={14} />
                         <span>Source Code</span>
                       </a>
-                      <a
-                        href="#contact"
-                        className="btn btn-outline btn-sm"
-                        onClick={() => showToast(`Inquiring about ${proj.title}`)}
-                      >
-                        <span>Request Demo</span>
-                        <ChevronRight size={14} />
-                      </a>
+                      {!proj.demo && (
+                        <a
+                          href="#contact"
+                          className="btn btn-outline btn-sm"
+                          onClick={() => showToast(`Inquiring about ${proj.title}`)}
+                        >
+                          <span>Request Demo</span>
+                          <ChevronRight size={14} />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -1523,6 +1905,87 @@ export default function App() {
                   Issued by: {activeModalCert.issuer}
                 </p>
                 <p className="cert-desc">{activeModalCert.description}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* CV / Resume Lightbox Modal */}
+        {cvModalOpen && (
+          <div
+            className="modal-backdrop cv-modal-backdrop"
+            onClick={() => setCvModalOpen(false)}
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="modal-content cv-modal-content" onClick={(e) => e.stopPropagation()}>
+              <div className="cv-modal-header">
+                <div className="cv-header-left">
+                  <div className="brand-badge" style={{ width: 40, height: 40, fontSize: 14 }}>
+                    ML
+                  </div>
+                  <div>
+                    <h3 className="cv-modal-title">Muhammad Luqman — Curriculum Vitae</h3>
+                    <small className="cv-modal-subtitle">
+                      MERN Stack Developer · BS Computer Science · Dera Ismail Khan
+                    </small>
+                  </div>
+                </div>
+                <div className="cv-header-actions">
+                  <a
+                    href={`${import.meta.env.BASE_URL}cv.png`}
+                    download="Muhammad_Luqman_CV.png"
+                    className="btn btn-primary btn-sm cv-download-btn"
+                    title="Download Muhammad Luqman's CV"
+                  >
+                    <Download size={15} />
+                    <span>Download CV</span>
+                  </a>
+                  <button
+                    type="button"
+                    className="cv-close-btn"
+                    onClick={() => setCvModalOpen(false)}
+                    aria-label="Close CV Preview"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="cv-modal-body">
+                <div className="cv-img-scroll-container">
+                  <img
+                    src={`${import.meta.env.BASE_URL}cv.png`}
+                    alt="Muhammad Luqman Curriculum Vitae"
+                    className="cv-lightbox-img"
+                  />
+                </div>
+              </div>
+
+              <div className="cv-modal-footer">
+                <div className="cv-footer-meta">
+                  <span>📧 meluqman06@gmail.com</span>
+                  <span>📱 +92 345 0541641</span>
+                  <span>📍 D.I. Khan, KP, Pakistan</span>
+                </div>
+                <div className="cv-footer-btns">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-sm"
+                    onClick={() => copyToClipboard('meluqman06@gmail.com', 'Developer Email')}
+                  >
+                    <Copy size={13} />
+                    <span>Copy Email</span>
+                  </button>
+                  <a
+                    href={`${import.meta.env.BASE_URL}cv.png`}
+                    download="Muhammad_Luqman_CV.png"
+                    className="btn btn-secondary btn-sm"
+                  >
+                    <Download size={14} />
+                    <span>Save to Device</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
