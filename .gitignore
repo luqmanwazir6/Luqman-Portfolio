@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Production / Build outputs
+dist/
+build/
+out/
+.next/
+
+# Logs
+lines
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables and secrets (NEVER commit these)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env.js
+
+# Testing
+coverage/
+.nyc_output
+
+# IDEs, Editors, and OS-specific files
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Diagnostic and cache folders
+.eslintcache
+.stylelintcache
+.turbo/
+.parcel-cache/
